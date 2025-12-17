@@ -12,15 +12,7 @@ namespace Firmware
     using EventHandler = void (*)(Targs eventArgs);
 
     template <typename Targs>
-    class IEvent
-    {
-    public:
-        virtual void invoke(Targs) = 0;
-        virtual void attach(EventHandler<Targs>) = 0;
-    };
-
-    template <typename Targs>
-    class Event final : public IEvent<Targs>
+    class Event final
     {
         static_assert(std::is_base_of<EventArgs, Targs>::value, "TArgs must inherit IEventArgs");
 

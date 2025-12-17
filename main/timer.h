@@ -5,15 +5,7 @@
 
 namespace Firmware::Interrupts
 {
-    class ITimer
-    {
-    public:
-        virtual bool get_isEnabled() = 0;
-        virtual void set_isEnabled(bool value) = 0;
-        virtual void set_timeoutUs(unsigned long value) = 0;
-    };
-
-    class Timer final : public ITimer
+    class Timer final
     {
     private:
         bool _isEnabled;
@@ -39,8 +31,8 @@ namespace Firmware::Interrupts
 
         Timer(std::function<void()> callback, unsigned long timeoutUs, bool isPeriodic);
 
-        bool get_isEnabled() override;
-        void set_isEnabled(bool value) override;
+        bool get_isEnabled();
+        void set_isEnabled(bool value);
         void set_timeoutUs(unsigned long value);
 
         ~Timer();

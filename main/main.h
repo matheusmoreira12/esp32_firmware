@@ -6,7 +6,8 @@
 class MainApplication : public Firmware::Application
 {
 private:
-    Firmware::Interrupts::ITimer* samplingTimer;
+    Firmware::Interrupts::Timer samplingTimer;
+    Firmware::RingBuffer<BUFFER_SIZE, uint16_t> ringBuffer;
     void samplingTimer_callback();
 
 public:

@@ -10,7 +10,8 @@
 using Timer = Firmware::Interrupts::Timer;
 
 MainApplication::MainApplication()
-    : samplingTimer(new Timer(std::bind(&MainApplication::samplingTimer_callback, this), Timer::fromHz(44100), true))
+    : samplingTimer(std::bind(&MainApplication::samplingTimer_callback, this), Timer::fromHz(SAMPLE_RATE_HZ), true),
+      ringBuffer()
 {
 }
 
