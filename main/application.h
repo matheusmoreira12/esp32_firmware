@@ -1,7 +1,5 @@
 #pragma once
 
-#include "freertos/task.h"
-
 namespace Firmware
 {
     class Application
