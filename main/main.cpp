@@ -17,11 +17,13 @@ MainApplication::MainApplication()
 
 void MainApplication::samplingTimer_callback()
 {
+    uint16_t sample = 0; // Replace with actual ADC reading
+    this->ringBuffer.write(sample);
 }
 
 void MainApplication::setup()
 {
-    this->samplingTimer->set_isEnabled(true);
+    this->samplingTimer.set_isEnabled(true);
 }
 
 extern "C" void app_main(void)

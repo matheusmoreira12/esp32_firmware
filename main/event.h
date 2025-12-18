@@ -14,7 +14,7 @@ namespace Firmware
     template <typename Targs>
     class Event final
     {
-        static_assert(std::is_base_of<EventArgs, Targs>::value, "TArgs must inherit IEventArgs");
+        static_assert(std::is_base_of<EventArgs, Targs>::value, "Targs must be derived from EventArgs");
 
     private:
         std::vector<EventHandler<Targs>> handlers;

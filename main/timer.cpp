@@ -4,32 +4,32 @@
 
 namespace Firmware::Interrupts
 {
-    long Timer::fromHz(unsigned int hz)
+    long Timer::fromHz(unsigned hz)
     {
         return 1'000'000u / hz;
     }
 
-    long Timer::fromKHz(unsigned int khz)
+    long Timer::fromKHz(unsigned khz)
     {
         return 1'000u / khz;
     }
 
-    long Timer::fromMinutes(unsigned int mins)
+    long Timer::fromMinutes(unsigned mins)
     {
         return mins * 60'000'000u;
     }
 
-    long Timer::fromSeconds(unsigned int secs)
+    long Timer::fromSeconds(unsigned secs)
     {
         return secs * 1'000'000u;
     }
 
-    long Timer::fromMilliseconds(unsigned int millis)
+    long Timer::fromMilliseconds(unsigned millis)
     {
         return millis * 1'000u;
     }
 
-    Timer::Timer(std::function<void()> callback, unsigned long timeoutUs, bool isPeriodic = false)
+    Timer::Timer(std::function<void()> callback, unsigned long timeoutUs, bool isPeriodic)
         : _isEnabled(false),
           _isRunning(false),
           _callback(callback),

@@ -23,13 +23,13 @@ namespace Firmware::Interrupts
         static void espTimer_callback(void *arg);
 
     public:
-        static long fromHz(unsigned int hz);
-        static long fromKHz(unsigned int khz);
-        static long fromMinutes(unsigned int mins);
-        static long fromSeconds(unsigned int secs);
-        static long fromMilliseconds(unsigned int ms);
+        static long fromHz(unsigned hz);
+        static long fromKHz(unsigned khz);
+        static long fromMinutes(unsigned mins);
+        static long fromSeconds(unsigned secs);
+        static long fromMilliseconds(unsigned ms);
 
-        Timer(std::function<void()> callback, unsigned long timeoutUs, bool isPeriodic);
+        Timer(std::function<void()> callback, unsigned long timeoutUs, bool isPeriodic = false);
 
         bool get_isEnabled();
         void set_isEnabled(bool value);
